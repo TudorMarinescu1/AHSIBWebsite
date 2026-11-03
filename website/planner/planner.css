@@ -1,0 +1,411 @@
+.planner-section {
+  background: #fff;
+}
+
+.planner-tools {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.tool-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mobile-year-tabs {
+  display: none;
+}
+
+.custom-course {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 90px auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.custom-course label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.custom-course input,
+.custom-course select {
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: #fff;
+  font: inherit;
+}
+
+.counter-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.counter {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.counter strong {
+  color: var(--navy);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.counter span {
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.search {
+  display: grid;
+  width: min(440px, 100%);
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.search input {
+  min-height: 44px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  font: inherit;
+}
+
+.planner-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) minmax(420px, 1fr) minmax(240px, 300px);
+  gap: 16px;
+  align-items: start;
+}
+
+.course-bank,
+.checks,
+.grade-column {
+  padding: 16px;
+}
+
+.course-bank {
+  position: sticky;
+  top: 92px;
+  max-height: calc(100vh - 110px);
+  overflow: auto;
+}
+
+.course-bank.is-over {
+  border-color: var(--blue);
+  background: #edf6ff;
+}
+
+.bank-list {
+  display: grid;
+  gap: 10px;
+}
+
+.bank-card,
+.scheduled-card {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 6px;
+  background: #fff;
+  cursor: grab;
+}
+
+.mobile-add-actions {
+  display: none;
+}
+
+.custom-scheduled {
+  border-left-color: var(--green);
+}
+
+.bank-card:active,
+.scheduled-card:active {
+  cursor: grabbing;
+}
+
+.bank-card strong,
+.scheduled-card strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.92rem;
+}
+
+.bank-card span,
+.scheduled-card span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+
+.schedule-board {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.grade-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.grade-heading span {
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.dropzone {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-height: 520px;
+  padding: 12px;
+  border: 2px dashed #c5d2df;
+  border-radius: 8px;
+  background: #f6f9fc;
+}
+
+.dropzone.is-over {
+  border-color: var(--blue);
+  background: #edf6ff;
+}
+
+.empty-message {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  color: var(--muted);
+  text-align: center;
+}
+
+.check {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.check:last-child {
+  border-bottom: 0;
+}
+
+.check-icon {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.check.ok .check-icon {
+  background: var(--green);
+}
+
+.check.warn .check-icon {
+  background: var(--red);
+}
+
+.check strong {
+  display: block;
+  font-size: 0.94rem;
+}
+
+.check span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+@media (max-width: 1050px)  {
+
+  .planner-tools,
+  .custom-course {
+    align-items: stretch;
+  }
+
+  .planner-tools {
+    flex-direction: column;
+  }
+
+  .course-bank,
+  .checks {
+    position: static;
+    max-height: none;
+  }
+
+  .checks {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px)  {
+
+  .custom-course {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-section {
+    padding-inline: 12px;
+  }
+
+  .planner-tools {
+    gap: 12px;
+  }
+
+  .tool-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .counter {
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px;
+  }
+
+  .mobile-year-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .year-tab {
+    min-height: 44px;
+    padding: 10px;
+    color: var(--navy);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    font: inherit;
+    font-weight: 900;
+  }
+
+  .year-tab.is-active {
+    color: #111b26;
+    background: var(--gold);
+    border-color: #d5a628;
+  }
+
+  .course-bank {
+    order: 2;
+  }
+
+  .schedule-board {
+    order: 1;
+  }
+
+  .checks {
+    order: 3;
+  }
+
+  .grade-column {
+    display: none;
+  }
+
+  .grade-column.is-mobile-active {
+    display: block;
+  }
+
+  .dropzone {
+    min-height: 360px;
+  }
+
+  .bank-list {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-add-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .mobile-add-actions button {
+    min-height: 36px;
+    padding: 8px;
+    color: var(--navy);
+    background: #eef5f5;
+    border: 1px solid #c7dcdb;
+    border-radius: 6px;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 900;
+  }
+}
+
+@media print  {
+
+  .planner-layout,
+  .schedule-board {
+    display: block;
+  }
+
+  .grade-column {
+    margin-bottom: 18px;
+    box-shadow: none;
+  }
+}
+
+.checks,
+.course-bank,
+.grade-column {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(24, 44, 70, 0.05);
+}
+
+@media (max-width: 1050px)  {
+.planner-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 760px)  {
+.planner-layout,
+.schedule-board,
+.counter-row {
+    grid-template-columns: 1fr;
+}
+}
+
+@media print  {
+.course-bank,
+.planner-tools {
+    display: none;
+}
+}

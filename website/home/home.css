@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(520px, 72vh, 760px);
+  align-items: end;
+  overflow: hidden;
+  background: #101820;
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.76;
+}
+
+.hero::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(12, 22, 36, 0.88), rgba(12, 22, 36, 0.5), rgba(12, 22, 36, 0.18)),
+    linear-gradient(0deg, rgba(12, 22, 36, 0.68), transparent 46%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(760px, calc(100% - 36px));
+  margin: 0 0 clamp(56px, 10vh, 96px) clamp(18px, 5vw, 72px);
+  color: #fff;
+}
+
+.hero .eyebrow {
+  color: var(--gold);
+  font-size: clamp(1.32rem, 2vw, 1.75rem);
+}
+
+.hero-content p {
+  max-width: 680px;
+  font-size: clamp(1.12rem, 1.9vw, 1.42rem);
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.85fr);
+  gap: clamp(28px, 6vw, 76px);
+  align-items: start;
+}
+
+.portal {
+  color: inherit;
+  text-decoration: none;
+}
+
+.portal:hover,
+.portal:focus-visible {
+  border-color: #9fbedc;
+  transform: translateY(-2px);
+}
+
+.portal span {
+  display: inline-flex;
+  margin-bottom: 30px;
+  color: var(--blue);
+  font-weight: 950;
+}
+
+.level-grid article {
+  border-top: 6px solid var(--gold);
+}
+
+.level-grid span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: var(--blue);
+  font-size: 1.4rem;
+  font-weight: 950;
+}
+
+@media (max-width: 760px)  {
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-content {
+    margin-right: 18px;
+  }
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.portal p,
+.level-grid p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.level-grid article,
+.portal {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(24, 44, 70, 0.05);
+}
+
+.portal-grid,
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.level-grid article,
+.portal {
+  padding: 22px;
+}
+
+@media (max-width: 1050px)  {
+.portal-grid,
+.level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 760px)  {
+.intro-grid,
+.portal-grid,
+.level-grid {
+    grid-template-columns: 1fr;
+}
+}
+
+@media print  {
+.hero,
+.intro-grid {
+    display: none;
+}
+}

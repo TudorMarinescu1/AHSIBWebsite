@@ -1,0 +1,414 @@
+:root {
+  --ink: #17212f;
+  --muted: #617083;
+  --line: #d9e1ea;
+  --paper: #fbfcfe;
+  --panel: #ffffff;
+  --navy: #123c69;
+  --blue: #1f6fbf;
+  --gold: #f4bf3a;
+  --green: #23745d;
+  --red: #b84a4a;
+  --shadow: 0 18px 50px rgba(16, 36, 60, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 72px;
+  padding: 12px clamp(18px, 4vw, 56px);
+  background: rgba(251, 252, 254, 0.92);
+  border-bottom: 1px solid rgba(217, 225, 234, 0.85);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: #101820;
+  background: var(--gold);
+  border: 2px solid var(--navy);
+  border-radius: 6px;
+  font-weight: 900;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+}
+
+.brand small {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.nav a {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #2c3d51;
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:focus-visible,
+.nav a.is-active {
+  background: #eaf2fb;
+  color: var(--navy);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #2c3d51;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 700;
+  list-style: none;
+}
+
+.nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-dropdown summary:hover,
+.nav-dropdown summary:focus-visible,
+.nav-dropdown[open] summary,
+.nav-dropdown.is-active summary {
+  background: #eaf2fb;
+  color: var(--navy);
+}
+
+.nav-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  display: none;
+  min-width: 210px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.nav-dropdown:hover .nav-menu,
+.nav-dropdown:focus-within .nav-menu,
+.nav-dropdown[open] .nav-menu {
+  display: grid;
+}
+
+.nav-menu a {
+  border-radius: 5px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--blue);
+  font-size: clamp(1.22rem, 1.85vw, 1.55rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2.6rem, 6vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: clamp(1.35rem, 2.05vw, 1.95rem);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.page-hero {
+  padding: clamp(72px, 10vw, 132px) clamp(18px, 5vw, 72px) clamp(48px, 7vw, 84px);
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(18, 60, 105, 0.95), rgba(20, 88, 120, 0.86)),
+    url("https://imagescdn.homes.com/i2/_gI9trF3iWq74M3mrVfXqrQakergBFyEiznGdqbQbmw/117/rancho-san-diego-ca.jpg?p=1") center / cover;
+}
+
+.page-hero.compact {
+  padding-bottom: 52px;
+}
+
+.page-hero h1,
+.page-hero p {
+  max-width: 860px;
+}
+
+.page-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.55rem);
+}
+
+.page-hero p {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+}
+
+.button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 900;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.primary {
+  color: #111b26;
+  background: var(--gold);
+}
+
+.button.secondary {
+  color: var(--ink);
+  background: #fff;
+  border-color: var(--line);
+}
+
+.feature-list p,
+.detail-grid p,
+.callout p,
+.contact p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.section {
+  padding: clamp(64px, 8vw, 108px) clamp(18px, 5vw, 72px);
+}
+
+.section-heading {
+  max-width: 780px;
+  margin-bottom: 30px;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.7fr);
+  gap: clamp(28px, 6vw, 72px);
+  align-items: start;
+}
+
+.callout {
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.feature-list {
+  display: grid;
+  gap: 16px;
+}
+
+.feature-list div,
+.feature-list a,
+.detail-grid article {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 8px 22px rgba(24, 44, 70, 0.05);
+}
+
+.feature-list div {
+  padding: 22px;
+}
+
+.feature-list a {
+  display: block;
+  padding: 22px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.feature-list a:hover,
+.feature-list a:focus-visible {
+  border-color: #9fbedc;
+  transform: translateY(-2px);
+}
+
+.band {
+  background: #eef5f5;
+  border-block: 1px solid #d5e4e3;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.detail-grid article {
+  padding: 22px;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 24px;
+  align-items: start;
+}
+
+.contact h2 {
+  font-size: clamp(1.55rem, 2.55vw, 2.35rem);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px clamp(18px, 5vw, 72px);
+  color: #fff;
+  background: #101820;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 1050px)  {
+.detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 760px)  {
+.site-header,
+.contact {
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.site-header {
+    gap: 12px;
+    padding: 12px 14px;
+}
+
+.nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    justify-content: stretch;
+}
+
+.nav a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    text-align: center;
+}
+
+.nav-dropdown {
+    width: 100%;
+}
+
+.nav-dropdown summary {
+    display: flex;
+    min-height: 40px;
+    justify-content: center;
+    padding: 8px;
+    text-align: center;
+}
+
+.nav-menu {
+    position: static;
+    min-width: 0;
+    margin-top: 8px;
+}
+
+.detail-grid,
+.two-column,
+.contact {
+    grid-template-columns: 1fr;
+}
+
+.button {
+    width: 100%;
+}
+
+}
+
+@media print  {
+.site-header,
+#courses,
+#exams,
+.contact,
+footer {
+    display: none;
+}
+}
