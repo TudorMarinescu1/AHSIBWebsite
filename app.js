@@ -59,8 +59,20 @@ const courses = [
     sequence: ["IB Chinese SL year 1", "IB Chinese SL year 2"],
     details: [
       "Chinese SL introduces and develops Mandarin communication through reading, writing, speaking, and listening.",
-      "Students explore Chinese culture, traditions, and modern society while practicing real-world language use.",
-      "The PDF lists Chinese SL as a two-year course."
+      "Students explore Chinese culture, traditions, and modern society while practicing real-world language use."
+    ],
+  },
+  {
+    id: "chinese-hl",
+    title: "IB Chinese HL",
+    group: "Group 2: Language Acquisition",
+    level: "HL",
+    twoYear: true,
+    sequence: ["IB Chinese HL year 1", "IB Chinese HL year 2"],
+    details: [
+      "Chinese HL develops advanced Mandarin reading, writing, speaking, and listening skills.",
+      "Students build communication skills through language study and exploration of Chinese-speaking cultures.",
+      "This is a challenging course for students with a strong interest in advanced language study."
     ],
   },
   {
@@ -110,7 +122,7 @@ const courses = [
     details: [
       "SEHS explores the science behind athletic performance, personal health, movement, and physical well-being.",
       "Students study physiological, biomechanical, psychological, mental, and nutritional factors that shape performance and long-term health.",
-      "The HL pathway is listed as a two-year science option."
+      "Kinesiology 1 is mandatory for taking this course."
     ],
   },
   {
@@ -122,7 +134,7 @@ const courses = [
     details: [
       "SEHS SL connects scientific inquiry to health, fitness, training, and athletic performance.",
       "Students apply evidence-based thinking to personal fitness, community wellness, and healthier lifestyles.",
-      "The SL pathway is listed as a one-year science option."
+      "Kinesiology 1 is mandatory for taking this course."
     ],
   },
   {
@@ -169,9 +181,9 @@ const courses = [
     level: "SL",
     sequence: ["One-year Film pathway"],
     details: [
-      "Film SL introduces students to film analysis, creative exploration, and technical production.",
+      "Film SL introduces students to film analysis, creative exploration, and technical production at a much quicker pace than Film HL does.",
       "Students develop skills in areas such as directing, cinematography, editing, sound design, screenwriting, and analysis of films from around the world.",
-      "The PDF notes Film SL as a one-year option for juniors."
+      "Taking other film courses such as Film 2 before taking this course is highly recommended."
     ],
   },
   {
@@ -183,8 +195,7 @@ const courses = [
     sequence: ["IB Music HL year 1", "IB Music HL year 2"],
     details: [
       "Music HL gives students an advanced path through music theory, history, performance, composition, critical listening, and analysis.",
-      "Students engage with diverse musical genres and cultures through individual and group work.",
-      "The PDF lists Music HL as a two-year option for IB Diploma students."
+      "Students engage with diverse musical genres and cultures through individual and group work."
     ],
   },
   {
@@ -284,6 +295,19 @@ function renderCatalog(filter = "all") {
     .map((groupName) => {
       const groupCourses = visible.filter((course) => course.group === groupName);
       if (!groupCourses.length) return "";
+
+      const subjectName = (course) => course.title.replace(/\s+(?:HL|SL)$/, "");
+      const pairedSubjects = new Set(
+        groupCourses
+          .filter((course) => course.level === "HL")
+          .map(subjectName)
+          .filter((subject) => groupCourses.some((course) => course.level === "SL" && subjectName(course) === subject))
+      );
+      groupCourses.sort((a, b) => {
+        const pairOrder = Number(pairedSubjects.has(subjectName(b))) - Number(pairedSubjects.has(subjectName(a)));
+        if (pairOrder) return pairOrder;
+        return subjectName(a).localeCompare(subjectName(b)) || a.level.localeCompare(b.level);
+      });
 
       return `
         <section class="course-group">

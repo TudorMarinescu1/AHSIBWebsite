@@ -188,15 +188,13 @@ h3 {
 }
 
 .page-hero {
-  padding: clamp(72px, 10vw, 132px) clamp(18px, 5vw, 72px) clamp(48px, 7vw, 84px);
+  padding: clamp(48px, 6vw, 80px) clamp(18px, 5vw, 72px) clamp(64px, 8vw, 104px);
   color: #fff;
-  background:
-    linear-gradient(90deg, rgba(18, 60, 105, 0.95), rgba(20, 88, 120, 0.86)),
-    url("https://imagescdn.homes.com/i2/_gI9trF3iWq74M3mrVfXqrQakergBFyEiznGdqbQbmw/117/rancho-san-diego-ca.jpg?p=1") center / cover;
+  background: var(--navy);
 }
 
-.page-hero.compact {
-  padding-bottom: 52px;
+.page-hero .eyebrow {
+  color: var(--gold);
 }
 
 .page-hero h1,
